@@ -2,6 +2,8 @@
 import Banner from "../../Components/Home/Banner";
 import Hero from "../../Components/Home/Hero";
 import ProjectsGrid from "../../Components/Home/project-grid";
+import SupportedBy from "../../Components/Home/supported";
+import Testimonials from "../../Components/Home/testimonial";
 
 export default function Home() {
   return (
@@ -15,6 +17,8 @@ export default function Home() {
   <section className="container  ">
   <Banner />
   </section>
+  <Testimonials />
+  <SupportedBy />
   </div>
   );
 }

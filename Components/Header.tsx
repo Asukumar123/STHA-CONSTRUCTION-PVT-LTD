@@ -17,13 +17,13 @@ export default function Header() {
 
   return (
     <div>
-      <header className="fixed bg-[#0a0a3a] flex items-center justify-between px-4 md:px-8 py-4 relative z-50">
+      <header className="fixed bg-[#111247] flex items-center justify-between px-4 text-2xl md:px-8 py-4 relative z-50">
         <div className="flex items-center">
           <Link href="/">
           <div className="relative flex items-center">
-            <div className="bg-red-600 text-white font-bold py-2 px-3 relative">
+            <div className="bg-red-600 text-white font-bold py-0 px-1 relative">
               STHA
-              <span className="absolute text-red-600 top-0 right-0 translate-x-1/2 -translate-y-1/2 text-xl">+</span>
+              <span className="absolute text-red-600 top-0 right-0 translate-x-4 -translate-y-5 text-xl">+</span>
             </div>
             <span className="text-white font-bold ml-2 text-xl">CONSTRUCTION</span>
           </div>
@@ -95,7 +95,7 @@ function NavLink({ href, label, pathname }: { href: string; label: string; pathn
   return (
     <Link
       href={href}
-      className={`${isActive ? "text-red-500 font-semibold border-b-2 border-red-500" : "text-white"} hover:text-red-400 transition-colors`}
+      className={`${isActive ? "text-white font-semibold bg-[#FF0E0E] px-4 py-2 rounded-md" : "text-white"} hover:text-blue-400 transition-colors`}
     >
       {label}
     </Link>

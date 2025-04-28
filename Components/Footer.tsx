@@ -4,7 +4,7 @@ import { Facebook, Linkedin, Youtube, Instagram } from "lucide-react"
 
 export default function Footer() {
   return (
-    <footer className="w-full bg-[#f0ebe7] py-6 px-8">
+    <footer className="w-full bg-[#EDE2E4] py-6 px-8">
       <div className="container mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-5 gap-8">
           {/* Logo and Company Name Section */}
@@ -14,7 +14,7 @@ export default function Footer() {
                 <Image src="/Assets/Footer.png" alt="STHA Construction Logo" width={186} height={166} className="object-contain" />
               </div>
               <h2 className="text-2xl font-bold text-black mb-4 ">STHA Construction</h2>
-              <div className="flex space-x-4">
+              <div className="flex space-x-6 ml-6">
                 <Link href="#" aria-label="Facebook">
                   <Facebook className="w-5 h-5 text-gray-600 hover:text-gray-900" />
                 </Link>

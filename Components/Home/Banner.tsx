@@ -3,6 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { motion, useAnimation } from "framer-motion";
 import { useState } from "react";
+import { MoveRight } from "lucide-react"; // Importing the MoveRight icon
 
 export default function Banner() {
     const controls = useAnimation(); // Animation controls
@@ -58,12 +59,13 @@ export default function Banner() {
                     <motion.button
                         whileHover={{ scale: 1.1 }}
                         whileTap={{ scale: 0.95 }}
-                        className="px-6 py-3 bg-white text-black font-semibold rounded-lg shadow-lg"
+                        className="px-6 py-3 bg-red-600 text-black font-semibold rounded-lg shadow-lg"
                         onClick={handleClick}
                     >
-                        <Link href="/Services">
-                      Explore the Services
-                       </Link>
+                        <Link href="/Services" className="flex items-center gap-2">
+                      Explore the Services <span className="mt-1"><MoveRight /></span>  
+                      </Link>
+                      
                     </motion.button>
                 </motion.div>
             )}

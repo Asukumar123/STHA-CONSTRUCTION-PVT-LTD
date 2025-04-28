@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Image from "next/image";
-import { Eye } from 'lucide-react';
+import { MoveRight } from 'lucide-react';
 
 interface ProjectCardProps {
   title: string;
@@ -37,9 +37,9 @@ export default function ProjectCard({ title, description, imageUrl }: ProjectCar
         }`}
       >
         <button
-          className="px-4 py-2 text-white font-semibold rounded-md bg-blue-800  flex gap-2 hover:bg-blue-700 shadow-md transition-transform transform hover:scale-105"
+          className="px-4 py-2 text-white font-semibold rounded-md bg-blue-800  flex gap-1 hover:bg-blue-700 shadow-md transition-transform transform hover:scale-105"
         >
-          Click to View <span> <Eye className="h-5 m-1" /></span> 
+          Click For Details <span className="mb-[0.3px]" > <MoveRight /></span> 
         </button>
       </div>
     </div>

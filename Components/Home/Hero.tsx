@@ -41,7 +41,7 @@ export default function Hero() {
       let start = 0
       const step = () => {
         start += 0.2 // Slow movement
-        y.set(Math.sin(start) * 2) // Move up and down between -20px and +20px
+        y.set(Math.sin(start) * 0) // Move up and down between -20px and +20px
         requestAnimationFrame(step)
       }
       step()
@@ -50,35 +50,35 @@ export default function Hero() {
   }, [y])
 
   return (
-    <section className="relative h-[calc(100vh-72px)] overflow-hidden bg-black">
+    <section className="relative h-[calc(100vh-72px)] overflow-hidden bg-blue-900">
       
       {/* Background Images (animated with parallax) */}
       <div className="absolute inset-0 z-0">
-        {slides.map((slide, index) => (
-          <AnimatePresence key={index}>
-            {index === current && (
-              <motion.div
-                className="absolute inset-0"
-                initial={{ opacity: 0, scale: 1.05 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 1.05 }}
-                transition={{ duration: 1.5, ease: "easeInOut" }}
-                style={{ y }} // <--- Apply parallax movement
-              >
-                <Image
-                  src={slide.imageUrl}
-                  alt="Background image"
-                  fill
-                  priority
-                  className="object-cover hidden lg:block"
-                />
-                {/* Gradient Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-transparent"></div>
-              </motion.div>
-            )}
-          </AnimatePresence>
-        ))}
-      </div>
+  {slides.map((slide, index) => (
+    <AnimatePresence key={index}>
+      {index === current && (
+    <motion.div
+    className="absolute inset-0"
+    initial={{ opacity: 0, rotate: -2 }}
+    animate={{ opacity: 1, rotate: 0 }}
+    exit={{ opacity: 0, rotate: 2 }}
+    transition={{ duration: 1.5, ease: "easeInOut" }}
+  >
+          <Image
+            src={slide.imageUrl}
+            alt="Background image"
+            fill
+            priority
+            className="object-cover hidden lg:block"
+          />
+          {/* Gradient Overlay */}
+          <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-transparent"></div>
+        </motion.div>
+      )}
+    </AnimatePresence>
+  ))}
+</div>
+
 
       {/* Content */}
       <div className="relative z-10 h-full flex flex-col justify-center items-start px-8 md:px-16 max-w-6xl text-white">
