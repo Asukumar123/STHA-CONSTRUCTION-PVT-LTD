@@ -7,7 +7,7 @@ const sections = [
   {
     title: "Architectural Design",
     description: "Transforming Ideas Into Iconic Structures",
-    image: "/Assets/Architure1.png",
+    image: "/Assets/Architectural.png",
     alt: "Restaurant interior design",
     linkText: "For architectural consultancy",
     reverse: false,
@@ -15,7 +15,7 @@ const sections = [
   {
     title: "Structural Design",
     description: "Where Precision Meets Structural Excellence",
-    image: "/Assets/Structural.png",
+    image: "/Assets/Structural1.png",
     alt: "Structural design wireframe",
     linkText: "For structural consultancy",
     reverse: true,
@@ -23,7 +23,7 @@ const sections = [
   {
     title: "Construction",
     description: "Precision, Quality, and Excellence",
-    image: "/Assets/Construction.png",
+    image: "/Assets/Construction2.png",
     alt: "Construction site with cranes",
     linkText: "For construction consultancy",
     reverse: false,
@@ -55,26 +55,34 @@ export default function ArchitecturalDesign() {
                 alt={section.alt}
                 width={500}
                 height={400}
-                className="rounded-md object-cover w-full h-full"
+                className="rounded-md object-cover ml-[65px] "
               />
             </div>
           )}
           
-          <div className="space-y-4 ml-16">
-            <h2 className="text-3xl font-bold text-blue-800">{section.title}</h2>
-            <p className="text-gray-600">{section.description}</p>
-            <div className="flex gap-4 items-center mt-4">
-              <Link
-                href="#"
-                className="px-6 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors"
-              >
-                Click
-              </Link>
-              <span className="px-6 py-2 bg-gray-200 text-gray-800 rounded-md">
-                {section.linkText}
-              </span>
-            </div>
-          </div>
+          <div className="space-y-3 ml-16">
+  <h2 className="text-5xl font-extrabold text-blue-900 tracking-tight">
+    {section.title}
+  </h2>
+  <p className="text-lg text-gray-700 leading-relaxed">
+    {section.description}
+  </p>
+  <div className="flex flex-wrap gap-4 items-center mt-6">
+  <Link
+    href="#"
+    className="px-6 py-2 text-lg font-medium bg-blue-600 text-white rounded-md hover:bg-blue-700 transition duration-200 
+               transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50
+               shadow-md hover:shadow-lg active:scale-95"
+  >
+    Explore Now
+  </Link>
+  <span className="px-6 py-2 text-lg font-medium bg-gray-100 text-gray-700 rounded-md
+                  hover:bg-gray-200 transition duration-200 cursor-default
+                  shadow-sm hover:shadow-md">
+    {section.linkText}
+  </span>
+</div>
+</div>
 
           {/* If reverse is false, show image second */}
           {!section.reverse && (
@@ -84,7 +92,7 @@ export default function ArchitecturalDesign() {
                 alt={section.alt}
                 width={500}
                 height={400}
-                className="rounded-md object-cover w-full h-full"
+                className="rounded-md object-cover ml-[50px]"
               />
             </div>
           )}

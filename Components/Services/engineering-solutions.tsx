@@ -2,8 +2,8 @@ import { Globe, Lock } from "lucide-react"
 
 export default function InnovativeEngineeringSolutions() {
   return (
-    <div className="max-w-6xl mx-auto px-4 py-12">
-      <h1 className="text-3xl md:text-4xl font-bold text-[#1a1a4b] mb-12 tracking-tight">
+    <div className="max-w-7xl mx-auto px-4 py-12">
+      <h1 className="text-3xl ml-12 md:text-4xl font-bold text-[#1a1a4b] mb-12 tracking-tight">
         INNOVATIVE ENGINEERING SOLUTIONS
       </h1>
 
