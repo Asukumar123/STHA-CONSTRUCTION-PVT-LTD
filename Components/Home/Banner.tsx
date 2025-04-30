@@ -19,7 +19,7 @@ export default function Banner() {
             {/* Button at Bottom Left */}
             <div className="absolute bottom-8 left-8">
                 <Link href="/Services">
-                    <button className="px-6 py-3 bg-red-600 text-black font-semibold rounded-lg shadow-lg flex items-center gap-2">
+                    <button className="px-6 py-3 mb-6 bg-red-600 text-black font-semibold rounded-lg shadow-lg flex items-center gap-2">
                         Explore the Services <span className="mt-1"><MoveRight /></span>
                     </button>
                 </Link>

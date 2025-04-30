@@ -38,10 +38,10 @@ export default function SupportedBy() {
   const repeatedLogos = [...partners, ...partners,...partners, ...partners,...partners, ...partners];
 
   return (
-    <div className="overflow-hidden w-full bg-white py-10">
-      <h2 className="text-3xl font-bold text-center text-[#1a1a4b] mb-10">
-        Supported By
-      </h2>
+    <div className="w-full bg-white py-10">
+    <h2 className="text-5xl py-4 font-extrabold text-center bg-gradient-to-r from-purple-500 via-indigo-600 to-blue-500 text-transparent bg-clip-text drop-shadow-lg mb-12 animate-pulse">
+  Supported By
+</h2>
 
       <div className="relative w-full overflow-hidden">
         <motion.div
@@ -62,8 +62,8 @@ export default function SupportedBy() {
                 src={partner.logoUrl}
                 alt={`${partner.name} logo`}
                 width={150}
-                height={100}
-                className="object-contain h-24 w-auto"
+                height={400}
+                className="object-contain h-34 w-auto"
               />
             </div>
           ))}

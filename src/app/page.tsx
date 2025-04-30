@@ -4,6 +4,7 @@ import Hero from "../../Components/Home/Hero";
 import ProjectsGrid from "../../Components/Home/project-grid";
 import SupportedBy from "../../Components/Home/supported";
 import Testimonials from "../../Components/Home/testimonial";
+import Contactus from "../../Components/Home/Contactus";
 
 export default function Home() {
   return (
@@ -18,7 +19,10 @@ export default function Home() {
   <Banner />
   </section>
   <Testimonials />
-  <SupportedBy />
+  <SupportedBy />\
+  <section className="container   ">
+  <Contactus />
+</section>
   </div>
   );
 }
