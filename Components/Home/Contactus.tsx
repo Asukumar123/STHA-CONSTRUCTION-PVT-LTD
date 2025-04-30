@@ -1,5 +1,6 @@
 import Image from "next/image";
 import ContactForm from "../ContactUs/contact-form";
+import { Toaster } from "react-hot-toast";
 
 export default function Contactus() {
     return (
@@ -14,9 +15,11 @@ export default function Contactus() {
                 />
                 <div>
 
-                 <ContactForm />
+                <ContactForm />
+                <Toaster />
                 </div>
         </div>
       
     );
 }
+// ujua irkw udkf ivne
