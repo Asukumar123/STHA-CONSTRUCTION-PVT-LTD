@@ -1,11 +1,14 @@
-import Image from "next/image"
-import React from "react"
+
+"use client";
+import Image from "next/image";
+import React from "react";
+import { motion } from "framer-motion";
 
 type Partner = {
-  id: number
-  name: string
-  logoUrl: string
-}
+  id: number;
+  name: string;
+  logoUrl: string;
+};
 
 const partners: Partner[] = [
   {
@@ -28,25 +31,44 @@ const partners: Partner[] = [
     name: "IIM Bodh Gaya",
     logoUrl: "/Assets/logos/iimbg.png",
   },
-]
+];
 
 export default function SupportedBy() {
-  return (
-    <div className="px-4 py-12 max-w-9xl ">
-      <h2 className="text-3xl font-bold text-center text-[#1a1a4b] mb-10">Supported By</h2>
+  // Duplicate once for seamless loop
+  const repeatedLogos = [...partners, ...partners,...partners, ...partners,...partners, ...partners];
 
-      <div className="flex flex-wrap justify-between items-center gap-8 md:gap-12">
-        {partners.map((partner) => (
-          <Image
-            key={partner.id}
-            src={partner.logoUrl || "/placeholder.svg"}
-            alt={`${partner.name} logo`}
-            width={150}
-            height={80}
-            className="object-contain h-21"
-          />
-        ))}
+  return (
+    <div className="overflow-hidden w-full bg-white py-10">
+      <h2 className="text-3xl font-bold text-center text-[#1a1a4b] mb-10">
+        Supported By
+      </h2>
+
+      <div className="relative w-full overflow-hidden">
+        <motion.div
+          className="flex w-max"
+          animate={{ x: ["0%", "-50%"] }}
+          transition={{
+            repeat: Infinity,
+            duration: 25,
+            ease: "linear",
+          }}
+        >
+          {repeatedLogos.map((partner, index) => (
+            <div
+              key={`${partner.id}-${index}`}
+              className="flex-shrink-0 px-12"
+            >
+              <Image
+                src={partner.logoUrl}
+                alt={`${partner.name} logo`}
+                width={150}
+                height={100}
+                className="object-contain h-24 w-auto"
+              />
+            </div>
+          ))}
+        </motion.div>
       </div>
     </div>
-  )
+  );
 }
