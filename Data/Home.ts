@@ -8,7 +8,7 @@ export interface Slide {
     {
       title: "KUNAL the path to sustainable progress",
       description: "Through innovative and resilient engineering solutions.",
-      imageUrl: "/Assets/Home.png",
+      imageUrl: "/Assets/Homepage1.jpg",
     },
     {
       title: "Advance Engineering Solution",
