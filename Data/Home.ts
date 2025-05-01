@@ -17,7 +17,7 @@ export interface Slide {
     },
     {
       title: "Quality & Precisely Execution",
-      description: "Delivering top-tier craftsmanship with meticulous attention to detail.",
+      description: "Delivering top-tier craftsmanship with meticulous attention to detail-where quality meets precision in every building.",
       imageUrl: "/Assets/Services.png",
     },
   ]
