@@ -6,7 +6,7 @@ export interface Slide {
   
   export const slides: Slide[] = [
     {
-      title: "Designing the path to sustainable progress",
+      title: "KUNAL the path to sustainable progress",
       description: "Through innovative and resilient engineering solutions.",
       imageUrl: "/Assets/Home.png",
     },
