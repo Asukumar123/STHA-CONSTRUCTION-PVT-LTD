@@ -2,33 +2,9 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { sections } from "../../Data/Services"; // Adjust the import path as necessary
 
-const sections = [
-  {
-    title: "Architectural Design",
-    description: "Transforming Ideas Into Iconic Structures",
-    image: "/Assets/Architectural.png",
-    alt: "Restaurant interior design",
-    linkText: "For architectural consultancy",
-    reverse: false,
-  },
-  {
-    title: "Structural Design",
-    description: "Where Precision Meets Structural Excellence",
-    image: "/Assets/Structural1.png",
-    alt: "Structural design wireframe",
-    linkText: "For structural consultancy",
-    reverse: true,
-  },
-  {
-    title: "Construction",
-    description: "Precision, Quality, and Excellence",
-    image: "/Assets/Construction2.png",
-    alt: "Construction site with cranes",
-    linkText: "For construction consultancy",
-    reverse: false,
-  },
-];
+
 
 const fadeInVariants = {
   hidden: { opacity: 0, y: 50 },
@@ -69,13 +45,13 @@ export default function ArchitecturalDesign() {
   </p>
   <div className="flex flex-wrap gap-4 items-center mt-6">
   <Link
-    href="#"
-    className="px-6 py-2 text-lg font-medium bg-blue-600 text-white rounded-md hover:bg-blue-700 transition duration-200 
-               transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50
-               shadow-md hover:shadow-lg active:scale-95"
-  >
-    Explore Now
-  </Link>
+  href={section.link}
+  className="px-6 py-2 text-lg font-medium bg-blue-600 text-white rounded-md hover:bg-blue-700 transition duration-200 
+           transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50
+           shadow-md hover:shadow-lg active:scale-95"
+>
+  Explore Now
+</Link>
   <span className="px-6 py-2 text-lg font-medium bg-gray-100 text-gray-700 rounded-md
                   hover:bg-gray-200 transition duration-200 cursor-default
                   shadow-sm hover:shadow-md">

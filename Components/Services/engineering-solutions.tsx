@@ -1,53 +1,61 @@
-import { Globe, Lock } from "lucide-react"
+import { Globe, Lock } from "lucide-react";
 
 export default function InnovativeEngineeringSolutions() {
   return (
-    <div className="max-w-7xl mx-auto px-4 py-12">
-      <h1 className="text-3xl ml-12 md:text-4xl font-bold text-[#1a1a4b] mb-12 tracking-tight">
-        INNOVATIVE ENGINEERING SOLUTIONS
+    <section className="max-w-7xl mx-auto px-6 py-16 bg-white">
+      <h1 className="text-4xl md:text-5xl font-extrabold text-center text-[#1a1a4b] mb-18 tracking-tight">
+        Innovative Engineering Solutions
       </h1>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-        {/* Advance Assessment */}
-        <div className="flex flex-col">
-          <Globe className="h-6 w-6 mb-4" />
-          <h2 className="text-lg font-semibold mb-2">Advance Assesment</h2>
-          <p className="text-gray-600 text-sm">
-            Body text for whatever you like to say. Add main takeaway points, quotes, anecdotes, or even a very short
-            story.
-          </p>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
+        {/* Advanced Assessment */}
+        <div className="flex items-start gap-4">
+          <Globe className="h-8 w-8 text-[#1a1a4b]" />
+          <div>
+            <h2 className="text-xl font-semibold text-[#1a1a4b] mb-2">Advanced Assessment</h2>
+            <p className="text-gray-600 text-base leading-relaxed">
+              Gain deep insights with our thorough evaluations. We blend innovation and precision to uncover hidden
+              opportunities and potential.
+            </p>
+          </div>
         </div>
 
-        {/* Customize Innovative Solution */}
-        <div className="flex flex-col">
-          <Globe className="h-6 w-6 mb-4" />
-          <h2 className="text-lg font-semibold mb-2">Customize Innovative Solution</h2>
-          <p className="text-gray-600 text-sm">
-            Body text for whatever you like to say. Add main takeaway points, quotes, anecdotes, or even a very short
-            story.
-          </p>
+        {/* Customized Innovative Solution */}
+        <div className="flex items-start gap-4">
+          <Globe className="h-8 w-8 text-[#1a1a4b]" />
+          <div>
+            <h2 className="text-xl font-semibold text-[#1a1a4b] mb-2">Customized Innovative Solution</h2>
+            <p className="text-gray-600 text-base leading-relaxed">
+              Tailored strategies engineered to meet your specific goals. We build solutions that are agile, scalable,
+              and future-ready.
+            </p>
+          </div>
         </div>
 
-        {/* Precisely Execution */}
-        <div className="flex flex-col">
-          <Lock className="h-6 w-6 mb-4" />
-          <h2 className="text-lg font-semibold mb-2">Precisely Execution</h2>
-          <p className="text-gray-600 text-sm">
-            Body text for whatever you like to claim. Add main takeaway points, quotes, anecdotes, or even a very
-            short story.
-          </p>
+        {/* Precise Execution */}
+        <div className="flex items-start gap-4">
+          <Lock className="h-8 w-8 text-[#1a1a4b]" />
+          <div>
+            <h2 className="text-xl font-semibold text-[#1a1a4b] mb-2">Precise Execution</h2>
+            <p className="text-gray-600 text-base leading-relaxed">
+              From plan to performance — we implement with accuracy and purpose, ensuring reliability every step of the
+              way.
+            </p>
+          </div>
         </div>
 
-        {/* Sharpe monitoring */}
-        <div className="flex flex-col">
-          <Lock className="h-6 w-6 mb-4" />
-          <h2 className="text-lg font-semibold mb-2">Sharpe monitoring</h2>
-          <p className="text-gray-600 text-sm">
-            Body text for whatever you like to claim. Add main takeaway points, quotes, anecdotes, or even a very
-            short story.
-          </p>
+        {/* Sharp Monitoring */}
+        <div className="flex items-start gap-4">
+          <Lock className="h-8 w-8 text-[#1a1a4b]" />
+          <div>
+            <h2 className="text-xl font-semibold text-[#1a1a4b] mb-2">Sharp Monitoring</h2>
+            <p className="text-gray-600 text-base leading-relaxed">
+              Our vigilant systems keep a constant pulse on performance, enabling proactive adjustments and sustained
+              excellence.
+            </p>
+          </div>
         </div>
       </div>
-    </div>
-  )
+    </section>
+  );
 }

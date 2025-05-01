@@ -33,7 +33,7 @@ export default function Page() {
                 height={1080} 
                 className="hidden lg:block object-cover sticky top-0 z-0" 
             />
-            <div className="relative z-10 space-y-16">
+            <div className="relative z-10 space-y-16 bg-white">
                 <ScrollFadeIn>
                     <ArchitecturalDesign />
                 </ScrollFadeIn>

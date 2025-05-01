@@ -1,33 +1,9 @@
 "use client";
 import { motion } from "framer-motion";
+import { testimonials } from "../../Data/Reviews";
 
 export default function Testimonials() {
-  const testimonials = [
-    {
-      id: 1,
-      name: "John Doe",
-      content: "This service completely exceeded my expectations!",
-      hasHyphen: false,
-    },
-    {
-      id: 2,
-      name: "Alice Johnson",
-      content: "Great support team and smooth experience.",
-      hasHyphen: true,
-    },
-    {
-      id: 3,
-      name: "Jane Smith",
-      content: "Professional, efficient, and friendly. Highly recommend!",
-      hasHyphen: true,
-    },
-    {
-      id: 4,
-      name: "Mark Lee",
-      content: "Super fast and reliable service.",
-      hasHyphen: false,
-    },
-  ];
+ 
 
   const repeatedTestimonials = [...testimonials, ...testimonials];
 

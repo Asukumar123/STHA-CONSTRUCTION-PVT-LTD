@@ -4,24 +4,9 @@ import { useState, useEffect } from "react"
 import { motion, AnimatePresence, useMotionValue} from "framer-motion"
 import Link from "next/link"
 import Image from "next/image"
+import { slides } from "../../Data/Home" // Assuming you have a data file for slides
 
-const slides = [
-  {
-    title: "Designing the path to sustainable progress",
-    description: "Through innovative and resilient engineering solutions.",
-    imageUrl: "/Assets/Home.png",
-  },
-  {
-    title: "Advance Engineering Solution",
-    description: "Smart engineering solutions for every unique complex construction challenge.",
-    imageUrl: "/Assets/About.png",
-  },
-  {
-    title: "Quality & Precisely Execution",
-    description: "Delivering top-tier craftsmanship with meticulous attention to detail.",
-    imageUrl: "/Assets/Services.png",
-  },
-]
+
 
 export default function Hero() {
   const [current, setCurrent] = useState(0)
