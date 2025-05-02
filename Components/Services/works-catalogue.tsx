@@ -64,13 +64,13 @@ export default function WorksCatalogue() {
               ))}
             </ul>
             <button
-              className={`mt-6 w-full py-2 rounded text-center font-medium transition-colors ${
-                item.active
-                  ? 'bg-white/20 border border-white/30 text-white hover:bg-white/30'
-                  : 'border border-gray-300 text-gray-700 hover:bg-gray-100'
-              }`}
-            >
-              Learn More
+  className={`mt-6 w-full py-2 rounded text-center font-medium transition-colors ${
+    item.active
+      ? `${item.buttonColor} border border-white/30 text-white hover:opacity-90`
+      : 'border border-gray-300 text-gray-700 hover:bg-gray-100'
+  }`}
+>
+              Explore Now
             </button>
           </motion.div>
         ))}

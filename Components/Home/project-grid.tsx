@@ -16,7 +16,7 @@ export default function ProjectsGrid() {
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {projects.map((project, index) => (
-          <motion.div
+            <motion.div
             key={project.id}
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -24,13 +24,14 @@ export default function ProjectsGrid() {
             viewport={{ once: true, amount: 0.2 }}
             whileHover={{ scale: 1.05, y: -5 }}
             whileTap={{ scale: 0.98 }}
-          >
+            >
             <ProjectCard
+              id={project.id}
               title={project.title}
               description={project.description}
               imageUrl={project.imageUrl}
             />
-          </motion.div>
+            </motion.div>
         ))}
       </div>
     </div>

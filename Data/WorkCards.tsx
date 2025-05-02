@@ -6,6 +6,7 @@ export interface CatalogueItem {
   iconBg: string
   svg: ReactNode
   active: boolean
+  buttonColor: string
 }
 
 export const catalogueData: CatalogueItem[] = [
@@ -18,7 +19,8 @@ export const catalogueData: CatalogueItem[] = [
       'Finishing Touch and Quality Checks',
       'Client Handover and Maintenance Guidance',
     ],
-    iconBg: 'bg-[#312AF4]',
+    iconBg: 'bg-white',
+    buttonColor: 'bg-green-600',
     svg: <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>,
     active: false,
   },
@@ -32,6 +34,7 @@ export const catalogueData: CatalogueItem[] = [
       'Final Inspection and Project Handover',
     ],
     iconBg: 'bg-white/20',
+    buttonColor: 'bg-',
     svg: (
       <>
         <rect x="4" y="2" width="16" height="20" rx="2" ry="2"></rect>
@@ -45,6 +48,7 @@ export const catalogueData: CatalogueItem[] = [
   },
   {
     title: 'Retrofitting',
+    buttonColor: 'bg-blue-600',
     steps: [
       'Preliminary Assessment and Feasibility Study',
       'Structural Analysis and Design Evaluation',
@@ -53,6 +57,7 @@ export const catalogueData: CatalogueItem[] = [
       'Final Inspection, Certification and Handover',
     ],
     iconBg: 'bg-gray-200',
+    
     svg: (
       <>
         <rect x="5" y="6" width="14" height="12" rx="2"></rect>
@@ -60,6 +65,8 @@ export const catalogueData: CatalogueItem[] = [
         <circle cx="15" cy="12" r="1"></circle>
       </>
     ),
+    
     active: false,
+  
   },
 ]
