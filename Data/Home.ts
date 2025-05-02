@@ -8,7 +8,7 @@ export interface Slide {
     {
       title: "Designing the path to sustainable progress",
       description: "Through innovative and resilient engineering solutions.",
-      imageUrl: "/Assets/Home.png",
+      imageUrl: "/Assets/Homepage1.jpg",
     },
     {
       title: "Advance Engineering Solution",
@@ -17,7 +17,7 @@ export interface Slide {
     },
     {
       title: "Quality & Precisely Execution",
-      description: "Delivering top-tier craftsmanship with meticulous attention to detail.",
+      description: "Delivering top-tier craftsmanship with meticulous attention to detail-where quality meets precision in every building.",
       imageUrl: "/Assets/Services.png",
     },
   ]
