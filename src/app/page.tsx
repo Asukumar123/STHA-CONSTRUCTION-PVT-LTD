@@ -1,10 +1,10 @@
 
-import Banner from "../../Components/Home/Banner";
-import Hero from "../../Components/Home/Hero";
-import ProjectsGrid from "../../Components/Home/project-grid";
-import SupportedBy from "../../Components/Home/supported";
-import Testimonials from "../../Components/Home/testimonial";
-import Contactus from "../../Components/Home/Contactus";
+import Banner from "./Components/Home/Banner";
+import Hero from "./Components/Home/Hero";
+import ProjectsGrid from "./Components/Home/project-grid";
+import SupportedBy from "./Components/Home/supported";
+import Testimonials from "./Components/Home/testimonial";
+import Contactus from "./Components/Home/Contactus";
 
 export default function Home() {
   return (
@@ -15,12 +15,12 @@ export default function Home() {
     <ProjectsGrid />
    
   </section>
-  <section className="container  ">
+  <section className="  ">
   <Banner />
   </section>
   <Testimonials />
-  <SupportedBy />\
-  <section className="container   ">
+  <SupportedBy />
+  <section className="container    ">
   <Contactus />
 </section>
   </div>

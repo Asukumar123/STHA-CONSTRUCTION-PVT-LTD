@@ -2,7 +2,7 @@
 import { useParams } from "next/navigation";
 import { projects } from "../../../../Data/Projects";
 import Image from "next/image";
-import ProjectCard from "../../../../Components/Home/project-card";
+import ProjectCard from "../../Components/Home/project-card";
 import { motion } from "framer-motion";
 
 export default function ProjectShowcase() {

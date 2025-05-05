@@ -3,9 +3,9 @@
 import Image from 'next/image';
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
-import ArchitecturalDesign from '../../../Components/Services/architecture-design';
-import InnovativeEngineeringSolutions from '../../../Components/Services/engineering-solutions';
-import WorksCatalogue from '../../../Components/Services/works-catalogue';
+import ArchitecturalDesign from '../Components/Services/architecture-design';
+import InnovativeEngineeringSolutions from '../Components/Services/engineering-solutions';
+import WorksCatalogue from '../Components/Services/works-catalogue';
 
 const ScrollFadeIn = ({ children }: { children: React.ReactNode }) => {
     const ref = useRef(null);

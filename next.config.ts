@@ -6,5 +6,9 @@ const nextConfig: NextConfig = {
     'http://192.168.110.1:3000' // your PC's local IP
   ],
 };
-
+module.exports = {
+  images: {
+    domains: ['lh3.googleusercontent.com'],
+  },
+};
 export default nextConfig;
