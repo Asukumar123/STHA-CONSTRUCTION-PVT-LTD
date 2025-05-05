@@ -21,7 +21,13 @@ export const catalogueData: CatalogueItem[] = [
     ],
     iconBg: 'bg-white',
     buttonColor: 'bg-green-600',
-    svg: <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>,
+    svg: (
+      <>
+        <rect x="5" y="6" width="14" height="12" rx="2"></rect>
+        <circle cx="9" cy="12" r="1"></circle>
+        <circle cx="15" cy="12" r="1"></circle>
+      </>
+    ),
     active: false,
   },
   {

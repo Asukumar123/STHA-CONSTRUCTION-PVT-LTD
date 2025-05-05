@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import Link from 'next/link';
 
 import { catalogueData } from '../../../../Data/WorkCards'; // Assuming you have a data file for catalogue items
 const cardVariants = {
@@ -63,6 +64,7 @@ export default function WorksCatalogue() {
                 <li key={step}>{step}</li>
               ))}
             </ul>
+            <Link href="/unknow">
             <button
   className={`mt-6 w-full py-2 rounded text-center font-medium transition-colors ${
     item.active
@@ -70,8 +72,11 @@ export default function WorksCatalogue() {
       : 'border border-gray-300 text-gray-700 hover:bg-gray-100'
   }`}
 >
+
               Explore Now
+
             </button>
+            </Link>
           </motion.div>
         ))}
       </div>
