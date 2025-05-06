@@ -1,17 +1,17 @@
-// lib/firebase.ts
+// firebase.js or firebaseConfig.js
+
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyBkLnxxGFeqR8c7yXfdbIUHHcCv8q53pa4",
-  authDomain: "stha-6cd04.firebaseapp.com",
-  projectId: "stha-6cd04",
-  storageBucket: "stha-6cd04.firebasestorage.app",
-  messagingSenderId: "462978016735",
-  appId: "1:462978016735:web:5e88d87fe4ecdc8985106a",
-  measurementId: "G-RMSNXYY3YT"
+  apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
+  authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
+  projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
+  storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID,
+  appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
+  measurementId: process.env.NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID,
 };
-
 
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
