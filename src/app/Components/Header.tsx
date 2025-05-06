@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import { Menu, LogOut } from "lucide-react";
+import { Menu} from "lucide-react";
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
@@ -89,13 +89,7 @@ export default function Header() {
               >
              <LayoutDashboard />
               </Link>
-              <button
-                onClick={() => signOut(auth)}
-                className="bg-red-600 text-white px-4 py-1 rounded"
-                title="Logout"
-              >
-                <LogOut />
-              </button>
+             
             </>
           ) : (
             <button

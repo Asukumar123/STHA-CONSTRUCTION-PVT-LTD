@@ -1,10 +1,12 @@
+import ContactAboutSection from "../Components/About/about";
+import Hero from "../Components/Home/Hero";
 
-import ContactFormSection from '../Components/ContactUs/ContactFormSection';
 
 export default function Page() {
     return (
         <div>
-           <ContactFormSection />
+              <Hero />
+         < ContactAboutSection />
         </div>
     );
 }

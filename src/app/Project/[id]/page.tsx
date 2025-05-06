@@ -35,7 +35,7 @@ export default function ProjectShowcase() {
           height={400}
           className="w-full h-auto object-cover rounded-lg shadow"
         />
-              <div className="w-[600px] h-20 bg-blue-600 flex items-center justify-center rounded-md mt-12">
+              <div className="w-[740px] h-20 bg-blue-600 flex items-center justify-center rounded-md mt-12">
           <span className="text-white text-4xl font-semibold">Contact Us</span>
           
         </div>

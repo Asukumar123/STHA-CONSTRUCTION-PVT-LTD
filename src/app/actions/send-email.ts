@@ -8,14 +8,14 @@ export type FormState = {
   message: string;
 };
 
-// Create a transporter using Gmail SMTP with secure settings
+// Create a transporter using Resend SMTP
 const transporter = nodemailer.createTransport({
-  host: "smtp.gmail.com",
-  port: 465,             // Use port 465 for SSL
-  secure: true,          // Must be true if port is 465
+  host: "smtp.resend.com",
+  port: 587,
+  secure: false, // false for STARTTLS (port 587)
   auth: {
-    user: process.env.EMAIL_FROM,
-    pass: process.env.EMAIL_PASSWORD, // Use your Gmail App Password here
+    user: "resend", // Always 'resend'
+    pass: process.env.RESEND_API_KEY,
   },
 });
 
@@ -49,7 +49,7 @@ export async function sendEmail(
 
     // Prepare email content
     const mailOptions = {
-      from: process.env.EMAIL_FROM,
+      from: process.env.EMAIL_FROM, // Must match the verified sender address
       to: process.env.EMAIL_FROM,
       replyTo: email,
       subject: `📩 New Construction Inquiry from ${name}`,
