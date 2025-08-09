@@ -1,48 +1,47 @@
-import { MetadataRoute } from 'next'
-import { projects } from '../../Data/Projects'
+import { NextResponse } from 'next/server';
+import { projects } from '../../Data/Projects';
 
-export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://stha.cloud' // Replace with your actual domain
-  
+const baseUrl = 'https://stha.cloud';
+
+export async function GET() {
+  const formatDate = (date: Date) =>
+    date.toISOString().split('.')[0] + "+00:00"; // Remove milliseconds, add timezone
+
   const staticPages = [
-    {
-      url: baseUrl,
-      lastModified: new Date(),
-      changeFrequency: 'weekly' as const,
-      priority: 1,
-    },
-    {
-      url: `${baseUrl}/Services`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly' as const,
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/About`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly' as const,
-      priority: 0.7,
-    },
-    {
-      url: `${baseUrl}/ContactUs`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly' as const,
-      priority: 0.6,
-    },
-    {
-      url: `${baseUrl}/Architectural`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly' as const,
-      priority: 0.7,
-    },
-  ]
+    { loc: `${baseUrl}/`, changefreq: 'weekly', priority: 1.0 },
+    { loc: `${baseUrl}/Services`, changefreq: 'monthly', priority: 0.8 },
+    { loc: `${baseUrl}/About`, changefreq: 'monthly', priority: 0.7 },
+    { loc: `${baseUrl}/ContactUs`, changefreq: 'monthly', priority: 0.6 },
+    { loc: `${baseUrl}/Architectural`, changefreq: 'monthly', priority: 0.7 },
+  ];
 
   const projectPages = projects.map((project) => ({
-    url: `${baseUrl}/Project/${project.id}`,
-    lastModified: new Date(),
-    changeFrequency: 'monthly' as const,
+    loc: `${baseUrl}/Project/${project.id}`,
+    changefreq: 'monthly',
     priority: 0.6,
-  }))
+  }));
 
-  return [...staticPages, ...projectPages]
+  const allPages = [...staticPages, ...projectPages];
+
+  const xml = `<?xml version="1.0" encoding="UTF-8"?>
+  <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    ${allPages
+      .map(
+        (page) => `
+      <url>
+        <loc>${page.loc}</loc>
+        <lastmod>${formatDate(new Date())}</lastmod>
+        <changefreq>${page.changefreq}</changefreq>
+        <priority>${page.priority}</priority>
+      </url>`
+      )
+      .join('')}
+  </urlset>`;
+
+  return new NextResponse(xml, {
+    status: 200,
+    headers: {
+      'Content-Type': 'application/xml',
+    },
+  });
 }
