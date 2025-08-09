@@ -4,8 +4,6 @@ import "./globals.css";
 import Header from "./Components/Header";
 import Footer from "./Components/Footer";
 
-
-
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -19,7 +17,15 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "STHA Construction",
   description: "Quality construction services with precise execution",
-}
+  icons: {
+    icon: [
+      { url: "/favicon.png", sizes: "64x64", type: "image/x-icon" },
+      { url: "/favicon.png", sizes: "512x512", type: "image/png" },
+    ],
+    apple: "/favicon.png",
+  },
+};
+
 
 export default function RootLayout({
   children,
@@ -27,18 +33,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-   
     <html lang="en">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-            
-       <Header/>
-      {children}
+    
+        <Header/>
+        {children}
         <Footer/>
-      
       </body>
     </html>
-
   );
 }

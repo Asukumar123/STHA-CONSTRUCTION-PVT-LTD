@@ -1,4 +1,3 @@
-// app/team/page.tsx or pages/team.tsx
 'use client';
 
 import TeamCard from "./TeamCard";
@@ -23,13 +22,13 @@ const cardVariants = {
 export default function TeamPage() {
   return (
     <motion.div
-      className="max-w-9xl mx-auto px-6 py-12 bg-gradient-to-br from-indigo-50 via-white to-purple-100 min-h-screen"
+      className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 py-8 sm:py-12 bg-gradient-to-br from-indigo-50 via-white to-purple-100 min-h-screen rounded-xl"
       initial="hidden"
       animate="show"
       variants={containerVariants}
     >
       <motion.h1
-        className="text-4xl font-extrabold text-center text-indigo-800 mb-14 drop-shadow-sm"
+        className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-center text-indigo-800 mb-10 sm:mb-14 drop-shadow-sm"
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
@@ -38,9 +37,9 @@ export default function TeamPage() {
       </motion.h1>
 
       {teamSections.map((section, idx) => (
-        <div className="mb-16" key={idx}>
+        <div className="mb-12 sm:mb-16" key={idx}>
           <motion.div
-            className="text-xl font-semibold text-indigo-700 mb-1"
+            className="text-lg sm:text-xl font-semibold text-indigo-700 mb-1"
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
@@ -49,7 +48,7 @@ export default function TeamPage() {
           </motion.div>
 
           <motion.div
-            className="text-gray-600 mb-6"
+            className="text-sm sm:text-base text-gray-600 mb-4 sm:mb-6"
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5, delay: 0.3 }}
@@ -58,7 +57,7 @@ export default function TeamPage() {
           </motion.div>
 
           <motion.div
-            className="grid sm:grid-cols-2 lg:grid-cols-2 gap-8"
+            className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 lg:gap-8"
             variants={containerVariants}
             initial="hidden"
             whileInView="show"

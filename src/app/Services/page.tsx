@@ -6,6 +6,7 @@ import { useRef } from 'react';
 import ArchitecturalDesign from '../Components/Services/architecture-design';
 import InnovativeEngineeringSolutions from '../Components/Services/engineering-solutions';
 import WorksCatalogue from '../Components/Services/works-catalogue';
+import Hero from "@/app/Components/Home/Hero"
 
 const ScrollFadeIn = ({ children }: { children: React.ReactNode }) => {
     const ref = useRef(null);
@@ -26,13 +27,11 @@ const ScrollFadeIn = ({ children }: { children: React.ReactNode }) => {
 export default function Page() {
     return (
         <div className="bg-white">
-            <Image 
-                src="/Assets/Services.png" 
-                alt="Modern construction project"
-                width={1920} 
-                height={1080} 
-                className="hidden lg:block object-cover sticky top-0 z-0" 
-            />
+            <div>
+                    <Hero/>
+            </div>
+         
+     
             <div className="relative z-10 space-y-16 bg-white">
                 <ScrollFadeIn>
                     <ArchitecturalDesign />

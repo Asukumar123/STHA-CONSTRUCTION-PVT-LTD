@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import { Menu} from "lucide-react";
+import { Menu, X} from "lucide-react";
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
@@ -26,6 +26,37 @@ export default function Header() {
     return () => unsubscribe();
   }, []);
 
+  // Close menu when clicking outside
+  useEffect(() => {
+    const handleOutsideClick = (event: MouseEvent) => {
+      const target = event.target as HTMLElement;
+      if (menuOpen && !target.closest('.mobile-menu') && !target.closest('.menu-button')) {
+        setMenuOpen(false);
+      }
+    };
+
+    if (menuOpen) {
+      document.addEventListener('mousedown', handleOutsideClick);
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleOutsideClick);
+    };
+  }, [menuOpen]);
+
+  // Prevent body scroll when menu is open
+  useEffect(() => {
+    if (menuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [menuOpen]);
+
   const handleGoogleRegister = async () => {
     try {
       const provider = new GoogleAuthProvider();
@@ -44,17 +75,17 @@ export default function Header() {
 
   return (
     <div>
-      <header className="fixed bg-[#111247] flex items-center justify-between px-4 text-2xl md:px-8 py-4 relative z-50 w-full">
+      <header className="fixed bg-[#111247] flex items-center justify-between px-4 sm:px-6 md:px-8 py-3 sm:py-4 relative z-50 w-full shadow-lg">
         <div className="flex items-center">
           <Link href="/">
             <div className="relative flex items-center">
-              <div className="bg-red-600 text-white font-bold py-0 px-1 relative">
+              <div className="bg-red-600 text-white font-bold py-1 px-2 relative text-sm sm:text-base">
                 STHA
-                <span className="absolute text-red-600 top-0 right-0 translate-x-4 -translate-y-5 text-xl">
+                <span className="absolute text-red-600 top-0 right-0 translate-x-3 sm:translate-x-4 -translate-y-4 sm:-translate-y-5 text-base sm:text-xl">
                   +
                 </span>
               </div>
-              <span className="text-white font-bold ml-2 text-xl">
+              <span className="text-white font-bold ml-2 text-sm sm:text-base lg:text-xl">
                 CONSTRUCTION
               </span>
             </div>
@@ -62,7 +93,7 @@ export default function Header() {
         </div>
 
         {/* Desktop Menu */}
-        <div className="hidden md:flex items-center space-x-6">
+        <div className="hidden lg:flex items-center space-x-4 xl:space-x-6">
           {navItems.map((item) => (
             <NavLink
               key={item.href}
@@ -77,24 +108,26 @@ export default function Header() {
                 <Image
                   src={user.photoURL || "/default-avatar.png"}
                   alt="Profile"
-                  className="w-8 h-8 rounded-full border border-white"
+                  className="w-6 h-6 xl:w-8 xl:h-8 rounded-full border border-white"
                   height={32}
                   width={32}
                 />
-                <span>{user.displayName || "User"}</span>
+                <span className="text-sm xl:text-base truncate max-w-20">
+                  {user.displayName?.split(" ")[0] || "User"}
+                </span>
               </div>
               <Link
                 href="/dashboard"
-                className="bg-blue-600 text-white px-4 py-1 rounded"
+                className="bg-blue-600 text-white px-3 py-2 rounded hover:bg-blue-700 transition-colors"
+                title="Dashboard"
               >
-             <LayoutDashboard />
+                <LayoutDashboard size={18} />
               </Link>
-             
             </>
           ) : (
             <button
               onClick={handleGoogleRegister}
-              className="bg-green-600 text-white px-4 py-1 rounded"
+              className="bg-green-600 text-white px-3 xl:px-4 py-2 rounded text-sm xl:text-base hover:bg-green-700 transition-colors"
             >
               Register
             </button>
@@ -103,90 +136,98 @@ export default function Header() {
 
         {/* Mobile Menu Button */}
         <button
-          className="text-white md:hidden"
+          className="text-white lg:hidden menu-button p-2"
           title="Menu"
-          aria-label="Menu"
-          onClick={() => setMenuOpen(true)}
+          aria-label="Toggle Menu"
+          onClick={() => setMenuOpen(!menuOpen)}
         >
-          <Menu size={24} />
+          {menuOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
       </header>
 
       {/* Mobile Menu Drawer */}
       {menuOpen && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 z-40 flex justify-end">
-          <div className="w-full sm:w-1/2 mt-[10px] bg-blue-900 h-[350px] p-6 relative flex flex-col">
+        <div className="fixed inset-0 bg-black bg-opacity-50 z-40 lg:hidden">
+          <div className="mobile-menu w-full sm:w-80 ml-auto bg-[#111247] h-full p-6 relative flex flex-col shadow-2xl">
             <button
               type="button"
-              className="absolute top-8 right-4"
+              className="absolute top-4 right-4 p-2 rounded-full hover:bg-white/10 transition-colors"
               onClick={() => setMenuOpen(false)}
               title="Close Menu"
+              aria-label="Close Menu"
             >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-8 w-8 text-white"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                strokeWidth={2}
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M6 18L18 6M6 6l12 12"
-                />
-              </svg>
+              <X className="h-6 w-6 text-white" />
             </button>
 
-            <nav className="mt-12 space-y-6">
-              {navItems.map((item) => (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  onClick={() => setMenuOpen(false)}
-                  className={`block text-lg ${
-                    pathname === item.href
-                      ? "text-red-500 font-bold"
-                      : "text-white"
-                  } hover:text-red-400 transition-colors`}
-                >
-                  {item.label}
-                </Link>
-              ))}
-              {user ? (
-                <>
-                  <div className="text-white mt-4">
-                    Hi, {user.displayName || "User"}
+            <div className="mt-16">
+              {/* User Info in Mobile Menu */}
+              {user && (
+                <div className="flex items-center space-x-3 mb-8 p-4 bg-white/10 rounded-lg">
+                  <Image
+                    src={user.photoURL || "/default-avatar.png"}
+                    alt="Profile"
+                    className="w-10 h-10 rounded-full border border-white"
+                    height={40}
+                    width={40}
+                  />
+                  <div className="text-white">
+                    <div className="font-semibold text-sm">{user.displayName}</div>
+                    <div className="text-xs text-gray-300 truncate">{user.email}</div>
                   </div>
-                  <Link
-                    href="/dashboard"
-                    onClick={() => setMenuOpen(false)}
-                    className="bg-blue-600 text-white px-4 py-1 rounded block mt-2"
-                  >
-                   <LayoutDashboard />
-                  </Link>
-                  <button
-                    onClick={() => {
-                      setMenuOpen(false);
-                      signOut(auth);
-                    }}
-                    className="bg-red-600 text-white px-4 py-1 rounded mt-2"
-                  >
-                    Logout
-                  </button>
-                </>
-              ) : (
-                <button
-                  onClick={() => {
-                    setMenuOpen(false);
-                    handleGoogleRegister();
-                  }}
-                  className="bg-green-600 text-white px-4 py-1 rounded"
-                >
-                  Register
-                </button>
+                </div>
               )}
-            </nav>
+
+              <nav className="space-y-4">
+                {navItems.map((item) => (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    onClick={() => setMenuOpen(false)}
+                    className={`block text-lg py-2 px-4 rounded-lg transition-all ${
+                      pathname === item.href
+                        ? "text-white font-bold bg-red-600"
+                        : "text-gray-200 hover:text-white hover:bg-white/10"
+                    }`}
+                  >
+                    {item.label}
+                  </Link>
+                ))}
+                
+                {user ? (
+                  <div className="pt-4 border-t border-white/20 space-y-3">
+                    <Link
+                      href="/dashboard"
+                      onClick={() => setMenuOpen(false)}
+                      className="flex items-center gap-3 bg-blue-600 text-white px-4 py-3 rounded-lg hover:bg-blue-700 transition-colors"
+                    >
+                      <LayoutDashboard size={20} />
+                      <span>Dashboard</span>
+                    </Link>
+                    <button
+                      onClick={() => {
+                        setMenuOpen(false);
+                        signOut(auth);
+                      }}
+                      className="w-full bg-red-600 text-white px-4 py-3 rounded-lg hover:bg-red-700 transition-colors"
+                    >
+                      Logout
+                    </button>
+                  </div>
+                ) : (
+                  <div className="pt-4 border-t border-white/20">
+                    <button
+                      onClick={() => {
+                        setMenuOpen(false);
+                        handleGoogleRegister();
+                      }}
+                      className="w-full bg-green-600 text-white px-4 py-3 rounded-lg hover:bg-green-700 transition-colors"
+                    >
+                      Register
+                    </button>
+                  </div>
+                )}
+              </nav>
+            </div>
           </div>
         </div>
       )}
@@ -208,11 +249,11 @@ function NavLink({
   return (
     <Link
       href={href}
-      className={`${
+      className={`text-sm xl:text-base transition-all duration-200 ${
         isActive
-          ? "text-white font-semibold bg-[#FF0E0E] px-4 py-2 rounded-md"
-          : "text-white"
-      } hover:text-blue-400 transition-colors`}
+          ? "text-white font-semibold bg-[#FF0E0E] px-3 xl:px-4 py-2 rounded-md"
+          : "text-gray-200 hover:text-white px-3 xl:px-4 py-2 rounded-md hover:bg-white/10"
+      }`}
     >
       {label}
     </Link>
