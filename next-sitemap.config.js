@@ -1,5 +1,5 @@
 module.exports = {
-  siteUrl: 'https://sthaconstruction.com',
+  siteUrl: 'https://stha.cloud',
   generateRobotsTxt: true,
   exclude: ['/dashboard/*', '/admin/*', '/api/*'],
   generateIndexSitemap: false,
@@ -12,7 +12,7 @@ module.exports = {
       }
     ],
     additionalSitemaps: [
-      'https://sthaconstruction.com/sitemap.xml',
+      'https://stha.cloud/sitemap.xml',
     ]
   },
   transform: async (config, path) => {
