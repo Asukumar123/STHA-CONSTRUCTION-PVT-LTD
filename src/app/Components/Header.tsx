@@ -72,8 +72,25 @@ export default function Header() {
     { href: "/About", label: "About" },
     { href: "/ContactUs", label: "Contact" },
   ];
+   const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "STHA Construction",
+    "url": "https://sthaconstruction.com",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://sthaconstruction.com/search?q={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  };
 
   return (
+    <>
+       <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+      />
+   
     <div>
       <header className="fixed bg-[#111247] flex items-center justify-between px-4 sm:px-6 md:px-8 py-3 sm:py-4 relative z-50 w-full shadow-lg">
         <div className="flex items-center">
@@ -232,8 +249,9 @@ export default function Header() {
         </div>
       )}
     </div>
-  );
-}
+  
+   </>
+)}
 
 function NavLink({
   href,
