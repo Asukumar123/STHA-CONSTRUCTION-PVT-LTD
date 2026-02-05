@@ -120,3 +120,27 @@
     @apply bg-background text-foreground;
   }
 }
+
+@layer base {
+  body {
+    background-image:
+      radial-gradient(circle at 15% 20%, rgba(14, 165, 233, 0.18), transparent 35%),
+      radial-gradient(circle at 85% 10%, rgba(99, 102, 241, 0.16), transparent 35%),
+      radial-gradient(circle at 50% 85%, rgba(239, 68, 68, 0.14), transparent 40%);
+    background-attachment: fixed;
+  }
+}
+
+@keyframes float-soft {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+.cool-card {
+  animation: float-soft 6s ease-in-out infinite;
+}

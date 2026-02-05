@@ -21,7 +21,7 @@ export default function ProjectCard({
 
   return (
     <div
-      className="relative border border-gray-200 rounded-md overflow-hidden bg-white hover:shadow-md transition-shadow"
+      className="cool-card relative overflow-hidden rounded-xl border border-white/60 bg-white/90 shadow-lg shadow-slate-200/80 transition duration-300 hover:-translate-y-1 hover:shadow-2xl"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
